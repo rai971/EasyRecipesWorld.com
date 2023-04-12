@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>CUSTOMIZE YOUR RECIPES! BASED ON NUTRITIONS</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"  type="text/css"
+	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	<link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+	<link href="css/main.css" rel="stylesheet" />
+<link rel="stylesheet" href="fix_head.css">
+<meta name="description" content="So here we are back with another interesting feature... which lets you fall in love with it !!!
+To all the fitness freaks who love food and cannot comprise when it comes to eating they always watch what they eat.....
+So here now can customize your Balanced Diet as per ...
+(I)  Max Cholesterol 
+(ii) Max Energy 
+(iii) Kcal  Fat 
+(iv) Diet 
+So go ahead and search for your Favorite Balanced Diet because  Balanced Diet = Healthy Diet .. Hurry Up and explore the experience of CUSTOM RECIPES in our  Easyrecipesworld :)"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165119897-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165119897-2');
+</script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/r/bs-3.3.5/dt-1.10.8/datatables.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+<script src ="rapid.js"></script>
+<script data-ad-client="ca-pub-2701547805719548" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>	
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"></script>
+
+</head>
+<body id="myPage" class="blur">
+	
+	<img style="border-radius: 97px;" id="giphy" src="img.gif"	alt="loading" />
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+		   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="#myPage">Easy Recipes World</a>
+		  </div>
+		  <div class="collapse navbar-collapse" id="myNavbar">
+		  <ul class="nav navbar-nav">
+			<li class=test"><a href="index.html">Home</a></li>
+			<li class="test" active><a href="https://blogs.easyrecipesworld.com">Blogs</a></li>
+			<li class="test" active><a href="">Custom recipes</a></li>
+			<li class="test" active><a href="postblog/submitblog.html">Post Blogs</a></li>
+			<li class="test" id="aboutBtn"><a href="#about">About Us</a></li>
+			<li class="test"><a href="#contact">Contact US</a></li>
+			<li class="test"><a href="#ourteam">Our Team</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			  <li id="fav"><a href="fave.html"><span class="glyphicon glyphicon-user"></span>Your favorite</a></li>
+			  <li id="signup"><a href="login/login.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			  <li id="login"><a href="login/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			  <li id="logout" style="display: none;"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			  <li style="color: wheat;" class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bell">Notification (<b>1</b>)</span></a>
+				<ul class="dropdown-menu notify-drop">
+				  <div class="notify-drop-title">
+					<div class="row">
+					  <div class="col-md-6 col-sm-6 col-xs-6">What's new..</div>
+					  <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
+					</div>
+				  </div>
+				  <!-- end notify title -->
+				  <!-- notify content -->
+				  <div class="drop-content">
+					<li>
+					  <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://cdn.bitlanding.com/i/1/12/21/chicken-marengo-pSic-o.jpg" alt="chicken-marengo"></div></div>
+					  <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="blogs.html">How To Make Chicken Marengo</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+					  <hr>
+					  <p class="time">11 May</p>
+					  </div>
+					</li>
+					<li>
+					  <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://img-global.cpcdn.com/recipes/ff1e585229a14f32/751x532cq70/tawa-baked-zebra-cake-recipe-main-photo.jpg" alt="chicken-marengo"></div></div>
+					  <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-bake-cake-without-an-oven.html">How To Make A Baked Cake Without An Oven?</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+					  <hr>
+					  <p class="time">19 May</p>
+					  </div>
+					</li>
+					<li>
+					  <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://i2.wp.com/www.bharatzkitchen.com/wp-content/uploads/2018/04/gatte-thumb-1.jpg?fit=800%2C450" alt="chicken-marengo"></div></div>
+					  <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-make-gatta-curry.html">How To Make Gatta Curry?</a> <a href="How-to-make-gatta-curry.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+					  <hr>
+					  <p class="time">21 May</p>
+					  </div>
+				  </li>
+				  </div>
+				  <div class="notify-drop-footer text-center">
+					<a href="blog.html"><i class="fa fa-eye"></i> See all blogs</a>
+				  </div>
+				</ul>
+			  </li>
+			</ul>
+		</div>
+		
+		</div>
+	  </nav>  
+	  <div class="header">  
+		<div class="progress-container">
+		  <div class="progress-bar" id="myBar"></div>
+		</div>  
+	  </div>
+	  <div style="margin-top: 63px;">
+		<div class="s010">
+			<form>
+			  <div class="inner-form">
+				<div class="basic-search">
+				  <div class="input-field">
+					<input id="search" type="text" placeholder="Type Dish name, Ingridents, course or anything and hit search!" />
+					<div class="icon-wrap">
+					  <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+					  </svg>
+					</div>
+				  </div>
+				</div>
+				<div class="advance-search">
+				  <span class="desc">CUSTOMIZE NUTRITIONS, INGREDIENTS AND MORE OR DONT FILL ANTHING TO SEACRH ALL</span>
+				  <div class="row">
+					<div class="input-field">
+						<div class="input-select">
+							<!-- <select data-trigger="" id="allergy" name="choices-single-defaul">
+							  <option placeholder="" value="">Select allergy (optional)</option>
+							</select> -->
+							<input style="border-radius: 51px;" type="text" placeholder="Carbohydrate(Gram)" id="CHOCDF"/>
+						</div>	
+					</div>
+					<div class="input-field">
+						<div class="input-select">
+							<!-- <select data-trigger="" id="diet" name="choices-single-defaul">
+							  <option placeholder="" value="">Select Diet (optional)</option>
+							</select> -->
+							<input style="border-radius: 51px;" type="text" placeholder="Max Carbohydrate(Gram)" id="FIBTG"/>
+						</div>	
+					</div>
+					<div class="input-field">
+						<input style="border-radius: 51px; width: 100%;" type="text" placeholder="Max Cholesterol (Gram)" id="CHOLE"/>
+					</div>
+				  </div>
+				  <div class="row second">
+					<div class="input-field">
+						<input style="border-radius: 51px;" type="text" placeholder="Max Energy (KCal)" id="energy"/>
+					</div>
+					<div class="input-field">
+						<input style="border-radius: 51px;" type="text" placeholder="Protein max in grams" id="PROCNT"/>
+					</div>
+					<div class="input-field">
+						<input style="border-radius: 51px;" type="text" placeholder="KCal FAT(0 to 1000)" id="fatty"/>
+					</div>
+				  </div>
+				  <div class="row third">
+					<div class="input-field">
+					  <div class="result-count">
+						<span>108 </span>results</div>
+					  <div class="group-btn">
+						<button class="btn-delete" id="delete">RESET</button>
+						<button class="btn-search" id="submit">SEARCH</button>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</form>
+		  </div>
+		  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- First -->
+<p id=main></p>
+<script>
+	// When the user scrolls the page, execute myFunction 
+	window.onscroll = function() {myFunction()};
+	function load(){
+	  var loader=document.getElementById('giphy')
+	  var body=document.getElementById('myPage')
+	  loader.style.display="block";
+	 // body.className='blur';
+	 
+  }
+  function removeLoader(){
+  //	$('#myPage').removeClass('blur');
+	  $('#giphy').hide();
+	  var body=document.getElementById('myPage')
+	  body.classList.remove("blur")
+  }
+  
+	function myFunction() {
+	  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+	  var scrolled = (winScroll / height) * 100;
+	  document.getElementById("myBar").style.width = scrolled + "%";
+	}
+	</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- 1st -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-2701547805719548"
+		 data-ad-slot="3002667432"
+		 data-ad-format="auto"
+		 data-full-width-responsive="true"></ins>
+	<script>
+		 (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+	<script type="text/javascript">
+		var infolinks_pid = 3269660;
+		var infolinks_wsid = 0;
+		</script>
+		<script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
+</body>
+</html>

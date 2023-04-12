@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Register to EasyRecipesWorld</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background:black;
+}
+.header {
+  position: fixed;
+  top: 48px;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.progress-bar {
+  height: 8px;
+  background: #4caf50;
+  width: 0%;
+}
+.glyphicon-play-circle{
+  font-size: 20px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+  }
+  
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  .container {
+  padding: 2px 16px;
+  width: auto;
+}
+
+.container-fluid{
+   background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+.navbar-brand{
+   color: wheat !important;
+}   
+#login,#signup,#resetpass{
+    
+  background-color: #f04151; /* Green */
+  border: none;
+  padding: 12px 28px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}    
+</style>
+<img id="giphy" style="border-radius: 97px;" src="img.gif"
+		alt="loading" />
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="../index.html">Easy Recipes World</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class=test"><a href="../index.html">Home</a></li>
+            <li class="test" active><a href="https://blogs.easyrecipesworld.com" >Blogs</a></li>
+            <li class="test" id="aboutBtn"><a href="../index.html#about">About Us</a></li>
+            <li class="test"><a href="../index.html#contact">Contact US</a></li>
+            <li class="test"><a href="../index.html#ourteam">Our Team</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="signup1"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li id="login1"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li id="logout" style="display: none;"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              </ul>
+        </div> 
+        </div>
+      </nav>
+      <div class="header">  
+        <div class="progress-container">
+          <div class="progress-bar" id="myBar"></div>
+        </div>  
+      </div>  
+      
+<!-- Image loader --> 
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" style="background: cadetblue;">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Login or Register</h2>
+                    <div >
+                        <div style="display: none;" class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Name" id="name" name="name">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Email" id="email"  name="email">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-2" type="password" placeholder="Password" id="pass" name="pass">
+                        </div>
+                        <div >
+                            <button id="login">login</button>
+                            <button id="signup">signup</button>
+                            <button id="resetpass">Reset Password?</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+<script>
+  // When the user scrolls the page, execute myFunction 
+  window.onscroll = function() {myFunction()};
+  function load(){
+	var loader=document.getElementById('giphy')
+	var body=document.getElementById('myPage')
+	loader.style.display="block";
+	//body.className='blur';
+  }
+  
+  function removeLoader(){
+ //	$('#myPage').removeClass('blur');
+    $('#giphy').hide();
+  }
+  
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+  </script>
+</html>
+<!-- end document-->

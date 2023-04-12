@@ -1,0 +1,9 @@
+
+.fixed{
+top:0;
+position:sticky;
+width:auto;
+display:none;
+border:none;
+z-index:10;
+}

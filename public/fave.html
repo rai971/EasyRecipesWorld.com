@@ -1,0 +1,564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<title>Mark the dishes close to your heart as FAVORITE in our
+  new FAVORITE SECTION by Signing Up & you can view your all the
+  FAVORITE dishes on our new Favorite Page in the website</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+<head>
+<meta name="description" content="browse collection of delicious vegetables and non vegetarian food recipes from around the wolrd : mark the dishes close to your heart as FAVORITE in our
+new FAVORITE SECTION by Signing Up ... & you can view your all the
+FAVORITE dishes on our new Favorite Page in the website : Easy Recipes World"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropdown-menu.notify-drop {
+  min-width: 330px;
+  background-color: #fff;
+  min-height: 360px;
+  max-height: 360px;
+}
+ .dropdown-menu.notify-drop .notify-drop-title {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 5px 15px 10px 15px;
+}
+ .dropdown-menu.notify-drop .drop-content {
+  min-height: 280px;
+  max-height: 280px;
+  overflow-y: scroll;
+}
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-track
+{
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-thumb
+{
+  background-color: #ccc;
+}
+ .dropdown-menu.notify-drop .drop-content > li {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0px 5px 0px;
+}
+ .dropdown-menu.notify-drop .drop-content > li:nth-child(2n+0) {
+  background-color: #fafafa;
+}
+ .dropdown-menu.notify-drop .drop-content > li:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ .dropdown-menu.notify-drop .drop-content > li:hover {
+  background-color: #fcfcfc;
+}
+ .dropdown-menu.notify-drop .drop-content > li:last-child {
+  border-bottom: none;
+}
+.dropdown-menu.notify-drop .drop-content > li .notify-img {
+  float: left;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin: 0px 0px 8px 0px;
+}
+ .dropdown-menu.notify-drop .allRead {
+  margin-right: 7px;
+}
+ .dropdown-menu.notify-drop .rIcon {
+  float: right;
+  color: #999;
+}
+ .dropdown-menu.notify-drop .rIcon:hover {
+  color: #333;
+}
+ .dropdown-menu.notify-drop .drop-content > li a {
+  font-size: 12px;
+  font-weight: normal;
+}
+.dropdown-menu.notify-drop .drop-content > li {
+  font-weight: bold;
+  font-size: 11px;
+}
+.dropdown-menu.notify-drop .drop-content > li hr {
+  margin: 5px 0;
+  width: 70%;
+  border-color: #e2e2e2;
+}
+.navbar-default .dropdown-menu.notify-drop .drop-content .pd-l0 {
+  padding-left: 0;
+}
+.dropdown-menu.notify-drop .drop-content > li p {
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+  margin: 3px 0;
+}
+ .dropdown-menu.notify-drop .drop-content > li p.time {
+  font-size: 10px;
+  font-weight: 600;
+  top: -6px;
+  margin: 8px 0px 0px 0px;
+  padding: 0px 3px;
+  border: 1px solid #e2e2e2;
+  position: relative;
+  background-image: linear-gradient(#fff,#f2f2f2);
+  display: inline-block;
+  border-radius: 2px;
+  color: #B97745;
+}
+ .dropdown-menu.notify-drop .drop-content > li p.time:hover {
+  background-image: linear-gradient(#fff,#fff);
+}
+ .dropdown-menu.notify-drop .notify-drop-footer {
+  border-top: 1px solid #e2e2e2;
+  bottom: 0;
+  position: relative;
+  padding: 8px 15px;
+}
+.dropdown-menu.notify-drop .notify-drop-footer a {
+  color: #777;
+  text-decoration: none;
+}
+ .dropdown-menu.notify-drop .notify-drop-footer a:hover {
+  color: #333;
+}     
+.header {
+  position: fixed;
+  top: 48px;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.hs_cos_wrapper_type_rich_text ol>li::before, .wt-blog__post__content ol>li::before {
+    position: absolute;
+    top: 0;
+    left: -1.5em;
+    content: counter(item) ".";
+    display: inline-block;
+    color: #2d3e50;
+    font-weight: 700;
+    text-align: right;
+    width: 2.5em;
+    padding-right: 0.5em;
+}
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.hsg-featured-snippet>h2::before {
+    top: calc(1.75rem - 0.1875rem);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.hsg-featured-snippet>h2::before {
+    content: '';
+    flex-shrink: 0;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-image: url(//cdn2.hubspot.net/hubfs/53/HubSpot_Logos/HSLogo_sprocket_color.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}
+.hsg-featured-snippet>h2 {
+    font-size: 1.333rem;
+    font-weight: 1000;
+    line-height: 1.416em;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #7c98b6;
+    margin: 0 0 2rem;
+    padding: 1rem 1rem 1rem 4rem;
+}
+.hsg-featured-snippet {
+    width: 100%;
+    position: relative;
+    padding: 2.75rem 2rem;
+    right: 2rem;
+    margin: 2.75rem 0;
+    border-radius: .1875rem;
+    box-sizing: content-box;
+    max-width: 895px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2rem;
+    background-color: #f5f8fa;
+    top: 34px;
+}
+
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background:black;
+}
+.progress-bar {
+  height: 8px;
+  background: #4caf50;
+  width: 0%;
+}
+.glyphicon-play-circle{
+  font-size: 20px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+  }
+  
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+
+#frameDiv{
+margin-left: 271px;
+border-radius: 22px;
+}
+
+
+.container-fluid{
+   background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+.navbar-brand{
+   color: wheat !important;
+}
+
+.recipe{
+   text-align: center;
+}
+.btn-info{
+  margin-bottom: 10px;
+}
+.logo {
+    color: #057ced;
+    font-size: 200px;
+    margin-top: 60px;
+}
+.row{
+  display: inline-table;
+}
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+
+.mediaAd{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.container {
+  padding: 2px 16px;
+  width: auto;
+}
+
+</style>
+
+</head>
+<link rel="icon" href="https://img.icons8.com/color/50/000000/beer-recipe.png" type="image/gif" sizes="16x16">
+<div id="785853877" class="mediaAd">
+  <script type="text/javascript">
+      try {
+          window._mNHandle.queue.push(function (){
+              window._mNDetails.loadTag("785853877", "300x250", "785853877");
+          });
+      }
+      catch (error) {}
+  </script>
+</div>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" >
+    <nav class="navbar navbar-default navbar-fixed-top">
+       <div class="container-fluid">
+         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>                        
+           </button>
+           <a class="navbar-brand" href="index.html#myPage">Easy Recipes World</a>
+         </div>
+         <div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav">
+           <li class=test"><a href="index.html#myPage">Home</a></li>
+           <li class="test" active><a href="https://blogs.easyrecipesworld.com" >Blogs</a></li>
+           <li class="test" active><a href="postblog/submitblog.html">Post Blogs</a></li>
+           <li class="test" id="aboutBtn"><a href="index.html#about">About Us</a></li>
+           <li class="test"><a href="index.html#contact">Contact US</a></li>
+           <li class="test"><a href="index.html#ourteam">Our Team</a></li>
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+            <li id="fav"><a href="#"><span class="glyphicon glyphicon-user"></span>Your favorite</a></li>
+            <li id="signup"><a href="../login/login.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li id="login"><a href="../login/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li id="logout" style="display: none;"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul> 
+          <ul class="nav navbar-nav navbar-right">
+            <li style="color: wheat;" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bell">Notification (<b>1</b>)</span></a>
+              <ul class="dropdown-menu notify-drop">
+                <div class="notify-drop-title">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">What's new..</div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
+                  </div>
+                </div>
+                <!-- end notify title -->
+                <!-- notify content -->
+                <div class="drop-content">
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://cdn.bitlanding.com/i/1/12/21/chicken-marengo-pSic-o.jpg" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="blogs.html">How To Make Chicken Marengo</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    
+                    <hr>
+                    <p class="time">11 May</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://img-global.cpcdn.com/recipes/ff1e585229a14f32/751x532cq70/tawa-baked-zebra-cake-recipe-main-photo.jpg" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-bake-cake-without-an-oven.html">How To Make A Baked Cake Without An Oven?</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    <hr>
+                    <p class="time">19 May</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://i2.wp.com/www.bharatzkitchen.com/wp-content/uploads/2018/04/gatte-thumb-1.jpg?fit=800%2C450" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-make-gatta-curry.html">How To Make Gatta Curry?</a> <a href="How-to-make-gatta-curry.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    <hr>
+                    <p class="time">21 May</p>
+                    </div>
+                </li>
+                </div>
+                <div class="notify-drop-footer text-center">
+                  <a href="blog.html"><i class="fa fa-eye"></i> See all blogs</a>
+                </div>
+              </ul>
+            </li>
+          </ul> 
+       </div>
+       
+       </div>
+     </nav>
+     <div class="header">  
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>  
+    </div>
+    <h1>Your favorite dishes are here :</h1>   
+    <div id="faveDishes" class="container row" style="margin-top: 33px">
+        <br>
+        <div class="card row" style="width:350px; margin:10px">
+          <img style="width:350px; border-radius:10px" src="https://cdn.bitlanding.com/i/1/12/21/chicken-marengo-pSic-o.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 class="card-title">Chicken Marango</h4>
+            <p class="card-text">How to cook Chicken Marango</p>
+            <a href="#" class="btn btn-primary">See Recipe</a>
+            <a href="#" class="btn btn-primary">Remove</a>
+          </div>
+        </div>
+        <br>  
+      </div>
+    <script>
+$(document).ready(function(){
+  var userEmail;
+	var uid;
+	var displayName;
+  var emailVerified;
+  var photoURL;
+  var isAnonymous;
+  var providerData;
+	var favdishArray =[];
+	var firebaseConfig = {
+        apiKey: "AIzaSyB4DCjCX4oVCCa_ZU3FRNNM-NHV1oj0VlE",
+        authDomain: "clever-courier-275508.firebaseapp.com",
+        databaseURL: "https://clever-courier-275508.firebaseio.com",
+        projectId: "clever-courier-275508",
+        storageBucket: "clever-courier-275508.appspot.com",
+        messagingSenderId: "934390634278",
+        appId: "1:934390634278:web:5501d2214bfb84227c13e7",
+        measurementId: "G-22WR746WFB"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	  var firestore = firebase.firestore();
+	  var btnLogOut = document.getElementById('logout');
+	  var btnLogIn = document.getElementById('login');
+	  var btnSignUp = document.getElementById('signup');
+	  var updatedfave;
+	  btnLogOut.addEventListener('click', e=>{
+		firebase.auth().signOut();
+	  });
+
+	  firebase.auth().onAuthStateChanged(firebaseUser =>{
+		if(firebaseUser){
+			console.log(firebaseUser);
+			userEmail = firebaseUser.email;
+			uid = firebaseUser.uid;
+			emailVerified = firebaseUser.emailVerified;
+      photoURL = firebaseUser.photoURL;
+      isAnonymous = firebaseUser.isAnonymous;
+			providerData = firebaseUser.providerData;
+			displayName = firebaseUser.displayName;
+	        var docName1 = 'UserFavTable/' +uid;
+			const docRef1 = firestore.doc(docName1);
+			updatedfave = function(){
+            docRef1.onSnapshot(function(doc) {
+			         if (doc.exists) {
+               $("#faveDishes").empty();
+                favdishArray = doc.data().favs;
+                //var favCard='';
+                for(var i=0;i<favdishArray.length;i++){
+                    var name = favdishArray[i].name;
+                    var imgUrl = favdishArray[i].src;
+                    var href = favdishArray[i].href;
+                    var faveCard = '<div class="card row" style="width:350px; margin:10px"><img style="width:350px; border-radius:10px" src="'+imgUrl+'" class="card-img-top" alt="'+name+'"><div class="card-body"><h4 class="card-title">'+name+'</h4><a href="'+href+'" class="btn btn-primary">Watch Recipe</a><a class="remove btn btn-primary">Remove</a></div>'
+                    $( "#faveDishes" ).append( faveCard );
+                }   
+          $(".remove").click(function (){
+          var dish = $(this).prev().prev().text();
+          var obj = [];
+          for (k = 0; favdishArray.length > k; k += 1) {
+	      	if (favdishArray[k].name == dish) {
+             var finalFave = favdishArray[k]
+             favdishArray.pop(finalFave);
+		        }
+          }
+          var docName = 'UserFavTable/' +uid;
+          const docRef = firestore.doc(docName); 
+          docRef.get().then(function(doc) {
+									if (doc.exists) {
+										console.log("Document data:", doc.data());
+										docRef.set({
+											favs: favdishArray,
+											name: userEmail
+										 }).then(function(){		
+											alert("Removed from favorite!");
+										 }).catch(function(error){
+											console.log("Got an error",error);
+										   alert("Got an error",error);
+										})
+									} else {
+										fave.push(favDish);
+										docRef.set({
+											favs: favdishArray,
+											name: userEmail
+										 }).then(function(){		
+											document.getElementById(favDishId).classList.toggle("heart-blast");		 
+											console.log("Blog Submited");
+											//alert("Blog Submited");
+										 }).catch(function(error){
+											console.log("Got an error",error);
+										   alert("Got an error",error);
+										})
+										console.log("No such document!");
+									}
+								}).catch(function(error) {
+									console.log("Error getting document:", error);
+								});
+           }); 
+				            console.log("fave data:", doc.data());
+		            } else {
+                    $( "#faveDishes" ).append( '<h1>Add dishes to favorite! to see here</h1>' );
+			             	console.log("No faves!");
+				   }
+			});
+      }
+      updatedfave();
+  
+			if(window.location.pathname == '/login/login.html'){
+        window.location.pathname = '/index.html'
+        
+			}
+			btnLogOut.style.removeProperty('display');
+		  btnLogIn.style.setProperty('display','none');
+			btnSignUp.style.setProperty('display','none');			
+		}else{
+      $( "#faveDishes" ).append( '<h1>Log in to add dishes to favorite! to see here</h1>' );
+			console.log('user not logged in');
+			btnLogIn.style.removeProperty('display');
+			btnSignUp.style.removeProperty('display');
+			btnLogOut.style.setProperty('display','none');
+		}
+     });
+     
+        });
+      // When the user scrolls the page, execute myFunction 
+      var frame = document.getElementById("blog")
+      document.getElementById("blog").onscroll = function() {myFunction1()};
+      
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+      </script>
+</body>

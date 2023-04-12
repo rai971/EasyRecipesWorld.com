@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<title>Delicious Food Recipes | Recipes for Lunch & Dinner –Easy Recipes World</title>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<meta name="clckd" content="56fa6688327b6874b9df7c2f90523564" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165119897-2"></script>
+
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165119897-2');
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+<meta name="yandex-verification" content="36f44cd52dea99b9" />
+<script data-ad-client="ca-pub-2701547805719548" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> 
+<meta name="description" content="Browse our latest collection of all delicious vegetables and non-vegetarian food recipes to make a healthy and tasty food.We've got you covered for lunch and dinner every week of the year with this easy and cheap chicken, ground beef, and vegetarian recipes."/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+      
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src ="food.js"></script>
+<style>
+
+.dropdown-menu.notify-drop {
+  min-width: 330px;
+  background-color: #fff;
+  min-height: 360px;
+  max-height: 360px;
+}
+ .dropdown-menu.notify-drop .notify-drop-title {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 5px 15px 10px 15px;
+}
+ .dropdown-menu.notify-drop .drop-content {
+  min-height: 280px;
+  max-height: 280px;
+  overflow-y: scroll;
+}
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-track
+{
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.dropdown-menu.notify-drop .drop-content::-webkit-scrollbar-thumb
+{
+  background-color: #ccc;
+}
+ .dropdown-menu.notify-drop .drop-content > li {
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0px 5px 0px;
+}
+ .dropdown-menu.notify-drop .drop-content > li:nth-child(2n+0) {
+  background-color: #fafafa;
+}
+ .dropdown-menu.notify-drop .drop-content > li:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ .dropdown-menu.notify-drop .drop-content > li:hover {
+  background-color: #fcfcfc;
+}
+ .dropdown-menu.notify-drop .drop-content > li:last-child {
+  border-bottom: none;
+}
+.dropdown-menu.notify-drop .drop-content > li .notify-img {
+  float: left;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin: 0px 0px 8px 0px;
+}
+ .dropdown-menu.notify-drop .allRead {
+  margin-right: 7px;
+}
+ .dropdown-menu.notify-drop .rIcon {
+  float: right;
+  color: #999;
+}
+ .dropdown-menu.notify-drop .rIcon:hover {
+  color: #333;
+}
+ .dropdown-menu.notify-drop .drop-content > li a {
+  font-size: 12px;
+  font-weight: normal;
+}
+.dropdown-menu.notify-drop .drop-content > li {
+  font-weight: bold;
+  font-size: 11px;
+}
+.dropdown-menu.notify-drop .drop-content > li hr {
+  margin: 5px 0;
+  width: 70%;
+  border-color: #e2e2e2;
+}
+.navbar-default .dropdown-menu.notify-drop .drop-content .pd-l0 {
+  padding-left: 0;
+}
+.dropdown-menu.notify-drop .drop-content > li p {
+  font-size: 11px;
+  color: #666;
+  font-weight: normal;
+  margin: 3px 0;
+}
+ .dropdown-menu.notify-drop .drop-content > li p.time {
+  font-size: 10px;
+  font-weight: 600;
+  top: -6px;
+  margin: 8px 0px 0px 0px;
+  padding: 0px 3px;
+  border: 1px solid #e2e2e2;
+  position: relative;
+  background-image: linear-gradient(#fff,#f2f2f2);
+  display: inline-block;
+  border-radius: 2px;
+  color: #B97745;
+}
+ .dropdown-menu.notify-drop .drop-content > li p.time:hover {
+  background-image: linear-gradient(#fff,#fff);
+}
+ .dropdown-menu.notify-drop .notify-drop-footer {
+  border-top: 1px solid #e2e2e2;
+  bottom: 0;
+  position: relative;
+  padding: 8px 15px;
+}
+.dropdown-menu.notify-drop .notify-drop-footer a {
+  color: #777;
+  text-decoration: none;
+}
+ .dropdown-menu.notify-drop .notify-drop-footer a:hover {
+  color: #333;
+}  
+#giphy {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    display: none;
+    z-index: 99;
+}
+.glyphicon-play-circle{
+  font-size: 20px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4511e;
+  }
+  
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+.meal{
+  font-size: initial;
+    margin: 5px;
+    color: navajowhite;
+    font-family     : Arial;
+    text-align      : center;
+    width           : 362px;
+    min-height: 500px;
+    background      : #ccc;
+    border          : 1px solid #000;
+    box-shadow      : 1px 1px 5px -1px #000;
+    padding         : 10px;
+    border-radius: 22px;
+    margin-bottom   : 10px;
+    cursor          : pointer;
+    display:  inline-table;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important; 
+    
+
+}
+.btn{
+  background: center;
+   margin: 5px;
+}
+.img{
+  border-radius: 20px;
+  height: 338px;
+    width: 324px;
+    
+}
+
+.daki{
+   text-align: left;
+    height: 220px;
+    color:wheat;
+    margin: 5px;
+    padding: 22px;
+    width: 14%;
+    display: inline-table;
+    border-radius: 19px;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.dropdown{
+ width:200px;
+ color: black;
+}
+#frameDiv{
+margin-left: 271px;
+border-radius: 22px;
+}
+.test2{
+background-image: url("image/foodie.jpg");
+display: none;
+
+}
+.meal1{
+border-radius: 22px;
+   margin: 3px;
+   color: white;
+    font-family     : Arial;
+    text-align      : center;
+    height          : 362px;
+    width           : 100%;
+    background      : #ccc;
+    border          : 1px solid #000;
+    box-shadow      : 1px 1px 5px -1px #000;
+    padding         : 10px;
+    margin-bottom   : 10px;
+    cursor          : pointer;
+    display:  inline-table;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+   /* background-image: url("image/foodie.jpg");*/
+}
+.food1{
+   min-height: auto !important;
+   text-align: center;
+   
+    top: 1px;
+background-image: url("image/foodie.jpg");
+font-family: "Tangerine", serif;
+width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+   
+}
+.container-fluid{
+   background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+  }
+.navbar-brand{
+   color: wheat !important;
+}
+
+.recipe{
+   text-align: center;
+}
+#about, #contact,#ourteam {
+   color: white;
+   margin: 13px;
+   height: fit-content;
+    border-radius: 26px;
+}
+.btn-info{
+  margin-bottom: 10px;
+}
+.logo {
+    color: #057ced;
+    font-size: 200px;
+    margin-top: 60px;
+}
+
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  .header {
+  position: fixed;
+  top: 48px;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: white;
+}
+.progress-bar {
+  height: 8px;
+  background: #4caf50;
+  width: 0%;
+}
+
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 34vh;
+  border-radius: 33px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.mediaAd{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.container {
+  padding: 2px 16px;
+  width: auto;
+}
+.heart {
+  width: fit-content;
+  height: 67px;
+  margin-left: 170px;
+  margin-top: 35px;
+  transform: translate(-50%, -50%);
+  background: url(http://imagizer.imageshack.com/img923/4545/XdJDuY.png) no-repeat;  
+  cursor: pointer;
+  
+}
+.heart-blast {
+  background-position: -2800px 0;
+  transition: background 1s steps(28);
+}
+
+
+</style>
+<link rel="icon" href="https://img.icons8.com/color/50/000000/beer-recipe.png" type="image/gif" sizes="16x16">
+<!-- Bidvertiser2035089 -->
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" class="food1">
+  
+  <img style="border-radius: 97px;" id="giphy" src="img.gif"
+		alt="loading" />
+   <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#myPage">Easy Recipes World</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class=test"><a href="#myPage">Home</a></li>
+          <li class="test" active><a href="https://blogs.easyrecipesworld.com">Blogs</a></li>
+          <li class="test" active><a href="healthy-dish-diet-search.html">Custom recipes</a></li>
+          <li class="test" active><a href="postblog/submitblog.html">Post Blogs</a></li>
+          <li class="test" id="aboutBtn"><a href="#about">About Us</a></li>
+          <li class="test"><a href="#contact">Contact US</a></li>
+          <li class="test"><a href="#ourteam">Our Team</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="fav"><a href="fave.html"><span class="glyphicon glyphicon-user"></span>Your favorite</a></li>
+            <li id="signup"><a href="login/login.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li id="login"><a href="login/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li id="logout" style="display: none;"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li style="color: wheat;" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-bell">Notification (<b>4</b>)</span></a>
+              <ul class="dropdown-menu notify-drop">
+                <div class="notify-drop-title">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">What's new..</div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
+                  </div>
+                </div>
+                <!-- end notify title -->
+                <!-- notify content -->
+                <div class="drop-content">
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://cdn.bitlanding.com/i/1/12/21/chicken-marengo-pSic-o.jpg" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="blogs.html">How To Make Chicken Marengo</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    <hr>
+                    <p class="time">11 May</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://img-global.cpcdn.com/recipes/ff1e585229a14f32/751x532cq70/tawa-baked-zebra-cake-recipe-main-photo.jpg" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-bake-cake-without-an-oven.html">How To Make A Baked Cake Without An Oven?</a> <a href="blogs.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    <hr>
+                    <p class="time">19 May</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img style="width: 59px;height: 50px;" src="https://i2.wp.com/www.bharatzkitchen.com/wp-content/uploads/2018/04/gatte-thumb-1.jpg?fit=800%2C450" alt="chicken-marengo"></div></div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="How-to-make-gatta-curry.html">How To Make Gatta Curry?</a> <a href="How-to-make-gatta-curry.html" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
+                    <hr>
+                    <p class="time">21 May</p>
+                    </div>
+                </li>
+                </div>
+                <div class="notify-drop-footer text-center">
+                  <a href="blog.html"><i class="fa fa-eye"></i> See all blogs</a>
+                </div>
+              </ul>
+            </li>
+          </ul>
+      </div>
+      
+      </div>
+    </nav>
+    <div class="header">  
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>  
+    </div>   
+    <div class="adflexbox" id="bc304153db7c60efa8fdd42f8bd0fcfe9"></div>
+    <script>
+        (function(d, w) {
+            if (!w.adflex) {
+                var s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//portal.adstargets.com/loader.js";
+                d.getElementsByTagName('head')[0].appendChild(s);
+                w.adflex = {host: '//portal.adstargets.com'};
+            }
+        })(document, window);
+    </script>  
+<h1 style="color:rgb(255, 255, 255);line-height: 40px ; margin: 40px ;  top:1%; text-align: center ;letter-spacing: 5px;">Every Meal Is A Happy Meal! </h1>
+<div>
+ <div>
+<div id="demo" class="daki">
+<label for="dishname">Dish Name: </label>
+ <input type="text" id="dishname" name="dishname" style="color: black"></input><br><br>
+ <button id="submit" class="btn btn-info "  ><span class="glyphicon glyphicon-cutlery" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Get Dishes</button>
+ </div>
+ <div id="demo1" class="daki">
+<label for="dishname">Dish Category: </label>
+<select class="dropdown"class="mdb-select md-form" id="category" name="category">
+      <option class="demo2" >Select Category</option> 
+    </select>  <br><br>
+    <label for="dishname">Dish Name: </label>
+    <select class="dropdown" class="mdb-select md-form" id="categoryDish" name="categoryDish">
+      <option class="demo2" >Select Dish</option> 
+    </select> 
+    <button id="submit1" class="btn btn-info "  ><span class="glyphicon glyphicon-cutlery" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Get Dishes by Category</button>
+ </div>
+ <div id="demo2" class="daki">
+<label for="dishname">Area: </label>
+<select class="dropdown" id="area" name="categoryArea">
+      <option class="demo2" >Select Area</option> 
+    </select> <br><br>
+    <label for="dishname">Dish Name: </label>
+    <select class="dropdown" id="areaDish" name="category1">
+      <option class="demo3" >Select Dish</option> 
+    </select> 
+    <button id="submit2" class="btn btn-info "  ><span class="glyphicon glyphicon-cutlery" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Get Dishes by Area</button>
+ </div>
+</div> 
+ <div class="test2">This is a divehjgjhhhjkhhkjhkjkjhkhjk</div>
+ <div class="recipe">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-format="fluid"
+       data-ad-layout-key="+3t+pr+27-co+d7"
+       data-ad-client="ca-pub-2701547805719548"
+       data-ad-slot="8762928131"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>  
+    
+  <div id="Lamb Tagine" class="meal"><img alt="Lamb Tagine" class="img" src="https://www.themealdb.com/images/media/meals/yuwtuu1511295751.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb Tagine</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=bR5Cqu84S_k"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_Tagine">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb Tagine" style="display: none;"><p>Heat the olive oil in a heavy-based pan and add the onion and carrot. Cook for 3- 4 mins until softened.
+
+Add the diced lamb and brown all over. Stir in the garlic and all the spices and cook for a few mins more or until the aromas are released.
+
+Add the honey and apricots, crumble in the stock cube and pour over roughly 500ml boiling water or enough to cover the meat. Give it a good stir and bring to the boil. Turn down to a simmer, put the lid on and cook for 1 hour.
+
+Remove the lid and cook for a further 30 mins, then stir in the squash. Cook for 20 – 30 mins more until the squash is soft and the lamb is tender. Serve alongside rice or couscous and sprinkle with parsley and pine nuts, if using.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Olive Oil : 2 tblsp </p><p>Onion : 1 finely sliced</p><p>Carrots : 2 chopped</p><p>Lamb Leg : 500g</p><p>Garlic : 2 cloves minced</p><p>Cumin : ½ tsp</p><p>Ginger : ½ tsp</p><p>Saffron : ¼ tsp</p><p>Cinnamon : 1 tsp </p></div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="+3t+pr+27-co+d7"
+     data-ad-client="ca-pub-2701547805719548"
+     data-ad-slot="8762928131"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><div id="Lamb Biryani" class="meal"><img alt="Lamb Biryani" class="img" src="https://www.themealdb.com/images/media/meals/xrttsx1487339558.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb Biryani</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=r7SYVSG5nxo"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_Biryani">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb Biryani" style="display: none;"><p>Grind the cashew, poppy seeds and cumin seeds into a smooth paste, using as little water as possible. Set aside. 
+
+Deep fry the sliced onions when it is hot. Don’t overcrowd the oil. When the onions turn light brown, remove from oil and drain on paper towel. The fried onion will crisp up as it drains. Also fry the cashewnuts till golden brown. Set aside.
+
+Wash the rice and soak in water for twenty minutes.
+Meanwhile, take a big wide pan, add oil in medium heat, add the sliced onions, add the blended paste, to it add the green chillies, ginger garlic paste and garlic and fry for a minute.
+Then add the tomatoes and sauté them well till they are cooked and not mushy.
+
+Then to it add the red chilli powder, biryani powder, mint, coriander leaves and sauté them well.
+Add the yogurt and mix well. I always move the skillet away from the heat when adding yogurt which prevents it from curdling.
+
+Now after returning the skillet back to the stove, add the washed lamb and salt and ½ cup water and mix well. Cook for 1 hour and cook it covered in medium low heat or put it in a pressure cooker for 6 whistles. If the water is not drained totally, heat it by keeping it open.
+
+Take another big pan, add thrice the cup of rice you use, and boil it. When it is boiling high, add the rice, salt and jeera and mix well. After 7 minutes exact or when the rice is 80% done. Switch off and drain the rice.
+
+Now, the layering starts. To the lamb, pat and level it. Add the drained hot rice on the top of it. Garnish with fried onions, ghee, mint, coriander leaves and saffron dissolved in milk.
+
+Cover the dish and bake in a 350f oven for 15 minutes or till the cooked but not mushy. Or cook in the stove medium heat for 12 minutes and lowest heat for 5 minutes. And switch off. Mix and serve hot!
+Notes
+1. If you are cooking in oven, do make sure to cook in a big oven safe pan and cover it tight and then keep in oven for the final step.
+2. You can skip biryani masala if you don’t have and add just garam masala (1 tsp and red chilli powder – 3 tsp instead of 1 tsp)
+3. If it is spicy in the end, squeeze some lemon, it will reduce the heat and enhance the flavors also.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Cashew nuts : 12</p><p>Khus khus : ½ tbsp</p><p>Cumin seeds : ½ tbsp</p><p>Onions : 3 sliced thinly</p><p>Ginger garlic paste : 2 tsp</p><p>Garlic : 4 whole</p><p>Mint : Leaves</p><p>Cilantro : Leaves</p><p>Saffron : ½ tsp dissolved in ½ cup warm milk</p></div></div><div id="Lamb Rogan josh" class="meal"><img alt="Lamb Rogan josh" class="img" src="https://www.themealdb.com/images/media/meals/vvstvq1487342592.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb Rogan josh</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=NZVo32n7iS8"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_Rogan_josh">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb Rogan josh" style="display: none;"><p>
+Put the onions in a food processor and whizz until very finely chopped. Heat the oil in a large heavy-based pan, then fry the onion with the lid on, stirring every now and then, until it is really golden and soft. Add the garlic and ginger, then fry for 5 mins more.
+Tip the curry paste, all the spices and the bay leaves into the pan, with the tomato purée. Stir well over the heat for about 30 secs, then add the meat and 300ml water. Stir to mix, turn down the heat, then add the yogurt.
+Cover the pan, then gently simmer for 40-60 mins until the meat is tender and the sauce nice and thick. Serve scattered with coriander, with plain basmati or pilau rice.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Onion : 2 quartered</p><p>Sunflower Oil : 4 tbsp</p><p>Garlic : 4 cloves</p><p>Ginger : Thumb sized peeled and very finely grated</p><p>Madras Paste : 2 tbsp</p><p>Paprika : 2 tsp</p><p>cinnamon stick : 1</p><p>Cardamom : 6 bashed to break shells</p><p>Clove : 4</p></div></div><div id="Tunisian Lamb Soup" class="meal"><img alt="Tunisian Lamb Soup" class="img" src="https://www.themealdb.com/images/media/meals/t8mn9g1560460231.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Tunisian Lamb Soup</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=w1qgTQmLRe4"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Tunisian_Lamb_Soup">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Tunisian Lamb Soup" style="display: none;"><p>Add the lamb to a casserole and cook over high heat. When browned, remove from the heat and set aside.
+Keep a tablespoon of fat in the casserole and discard the rest. Reduce to medium heat then add the garlic, onion and spinach and cook until the onion is translucent and the spinach wilted or about 5 minutes.
+Return the lamb to the casserole with the onion-spinach mixture, add the tomato puree, cumin, harissa, chicken, chickpeas, lemon juice, salt and pepper in the pan. Simmer over low heat for about 20 minutes.
+Add the pasta and cook for 15 minutes or until pasta is cooked.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Lamb Mince : 500g</p><p>Garlic : 2 cloves minced</p><p>Onion : 1</p><p>Spinach : 300g</p><p>Tomato Puree : 3 tbs</p><p>Cumin : 1 tbs</p><p>Chicken Stock : 1 Litre</p><p>Harissa Spice : 3 tsp</p><p>Chickpeas : 400g</p></div></div><div id="Lamb and Potato pie" class="meal"><img alt="Lamb and Potato pie" class="img" src="https://www.themealdb.com/images/media/meals/sxrpws1511555907.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb and Potato pie</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=NCyPaaUNYUk"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_and_Potato_pie">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb and Potato pie" style="display: none;"><p>Dust the meat with flour to lightly coat.
+Heat enough vegetable oil in a large saucepan to fill the base, and fry the onion and meat until lightly browned. Season with salt and pepper.
+Add the carrots, stock and more seasoning to taste.
+Bring to the boil, cover and reduce the heat to a simmer. Simmer for at least an hour or until the meat is tender. Take your time cooking the meat, the longer you leave it to cook, the better the flavour will be.
+Preheat the oven to 180C/350F/Gas 4.
+Add the drained potato cubes to the lamb.
+Turn the mixture into a pie dish or casserole and cover with the shortcrust pastry. Make three slits in the top of the pastry to release any steam while cooking.
+Brush with beaten egg and bake for about 40 minutes, until the pastry is golden brown.
+Serve.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Lamb Shoulder : 500g</p><p>Flour : 1 tbls</p><p>Vegetable Oil : Dash</p><p>Onion : 1 sliced</p><p>Carrots : 2 sliced</p><p>Vegetable Stock : 350ml/12fl</p><p>Potatoes : 500g</p><p>Shortcrust Pastry : 450g</p><p>Eggs : To Glaze</p></div></div><div id="Stuffed Lamb Tomatoes" class="meal"><img alt="Stuffed Lamb Tomatoes" class="img" src="https://www.themealdb.com/images/media/meals/u55lbp1585564013.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Stuffed Lamb Tomatoes</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=KfJp-QfrCz4"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Stuffed_Lamb_Tomatoes">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Stuffed Lamb Tomatoes" style="display: none;"><p>Heat oven to 180C/160C fan/gas 4. Slice the tops off the tomatoes and reserve. Scoop out most of the pulp with a teaspoon, being careful not to break the skin. Finely chop the pulp, and keep any juices. Sprinkle the insides of the tomatoes with a little sugar to take away the acidity, then place them on a baking tray.
+
+Heat 2 tbsp olive oil in a large frying pan, add the onion and garlic, then gently cook for about 10 mins until soft but not coloured. Add the lamb, cinnamon and tomato purée, turn up the heat, then fry until the meat is browned. Add the tomato pulp and juice, the rice and the stock. Season generously. Bring to the boil, then simmer for 15 mins or until the rice is tender and the liquid has been absorbed. Set aside to cool a little, then stir in the herbs.
+
+Stuff the tomatoes up to the brim, top tomatoes with their lids, drizzle with 2 tbsp more olive oil, sprinkle 3 tbsp water into the tray, then bake for 35 mins. Serve with salad and crusty bread, hot or cold.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Tomatoes : 4 large</p><p>Sugar : Pinch</p><p>Olive Oil : 4 tbs</p><p>Onion : 1 chopped</p><p>Garlic Clove : 2 finely chopped</p><p>Lamb : 200g</p><p>Cinnamon : 1 tbs</p><p>Tomato Puree : 2 tbs chopped</p><p>Rice : 50g</p></div></div><div id="Lamb Tzatziki Burgers" class="meal"><img alt="Lamb Tzatziki Burgers" class="img" src="https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb Tzatziki Burgers</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=s7_TF4ZHjPc"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_Tzatziki_Burgers">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb Tzatziki Burgers" style="display: none;"><p>Tip the bulghar into a pan, cover with water and boil for 10 mins. Drain really well in a sieve, pressing out any excess water.
+
+To make the tzatziki, squeeze and discard the juice from the cucumber, then mix into the yogurt with the chopped mint and a little salt.
+
+Work the bulghar into the lamb with the spices, garlic (if using) and seasoning, then shape into 4 burgers. Brush with a little oil and fry or barbecue for about 5 mins each side until cooked all the way through. Serve in the buns (toasted if you like) with the tzatziki, tomatoes, onion and a few mint leaves.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Bulgur Wheat : 25g</p><p>Lamb Mince : 500g</p><p>Cumin : 1 tsp </p><p>Coriander : 1 tsp </p><p>Paprika : 1 tsp </p><p>Garlic : 1 clove finely chopped</p><p>Olive Oil : For frying</p><p>Bun : 4</p><p>Cucumber : Grated</p></div></div><div id="Lamb and Lemon Souvlaki" class="meal"><img alt="Lamb and Lemon Souvlaki" class="img" src="https://www.themealdb.com/images/media/meals/rjhf741585564676.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb and Lemon Souvlaki</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=krR4rhjR75Y"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_and_Lemon_Souvlaki">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb and Lemon Souvlaki" style="display: none;"><p>Pound the garlic with sea salt in a pestle and mortar (or use a small food processor), until the garlic forms a paste. Whisk together the oil, lemon juice, zest, dill and garlic. Mix in the lamb and combine well. Cover and marinate for at least 2 hrs or overnight in the fridge. If you’re going to use bamboo skewers, soak them in cold water.
+
+If you’ve prepared the lamb the previous day, take it out of the fridge 30 mins before cooking. Thread the meat onto the soaked or metal skewers. Heat the grill to high or have a hot griddle pan or barbecue ready. Cook the skewers for 2-3 mins on each side, basting with the remaining marinade. Heat the pitta or flatbreads briefly, then stuff with the souvlaki. Add Greek salad (see 'Goes well with', right) and Tzatziki (below), if you like.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>Garlic : 2 cloves</p><p>Sea Salt : 2 tsp</p><p>Olive Oil : 4 tbs</p><p>Lemon : Zest and juice of 1</p><p>Dill : 1 tbs</p><p>Lamb Leg : 750g</p><p>Pita Bread : To serve</p><p> :  </p><p> :  </p></div></div><div id="Lamb tomato and sweet spices" class="meal"><img alt="Lamb tomato and sweet spices" class="img" src="https://www.themealdb.com/images/media/meals/qtwtss1468572261.jpg" width="290" height="175" frameborder="0" allowfullscreen=""><h2 style="border-radius: 10px; ">Lamb tomato and sweet spices</h2><a style="color: white;" class="btn btn-primary btn-sm" target="_blank" href="https://www.youtube.com/watch?v=vaZb1MnFBgA"><span class=" glyphicon glyphicon-play-circle"></span>Watch Video</a><p></p><div class="heart" id="Lamb_tomato_and_sweet_spices">Add to favorite</div> <button type="button" class="btn btn-primary mb-2 filter" style="display: unset;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Recipe</button><button type="button" class="btn btn-primary mb-2 filterHide" style="display: none;"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Recipe</button><div class="test" id="Lamb tomato and sweet spices" style="display: none;"><p>Use pickled vine leaves here, preserved in brine. Small delicate leaves are better than the large bristly ones but, if only large leaves are to hand, then trim them to roughly 12 by 12 cms so that you don't get too many layers of leaves around the filling. And remove any stalks. Drain the preserved leaves, immerse them in boiling water for 10 minutes and then leave to dry on a tea towel before use. 
+Basmati rice with butter and pine nuts is an ideal accompaniment. Couscous is great, too. Serves four.
+First make the filling. Put all the ingredients, apart from the tomatoes, in a bowl. Cut the tomatoes in half, coarsely grate into the bowl and discard the skins. Add half a teaspoon of salt and some black pepper, and stir. Leave on the side, or in the fridge, for up to a day. Before using, gently squeeze with your hands and drain away any juices that come out.
+To make the sauce, heat the oil in a medium pan. Add the ginger and garlic, cook for a minute or two, taking care not to burn them, then add the tomato, lemon juice and sugar. Season, and simmer for 20 minutes.
+While the sauce is bubbling away, prepare the vine leaves. Use any torn or broken leaves to line the base of a wide, heavy saucepan. Trim any leaves from the fennel, cut it vertically into 0.5cm-thick slices and spread over the base of the pan to cover completely.
+Lay a prepared vine leaf (see intro) on a work surface, veiny side up. Put two teaspoons of filling at the base of the leaf in a 2cm-long by 1cm-wide strip. Fold the sides of the leaf over the filling, then roll it tightly from bottom to top, in a cigar shape. Place in the pan, seam down, and repeat with the remaining leaves, placing them tightly next to each other in lines or circles (in two layers if necessary).
+Pour the sauce over the leaves (and, if needed, add water just to cover). Place a plate on top, to weigh the leaves down, then cover with a lid. Bring to a boil, reduce the heat and cook on a bare simmer for 70 minutes. Most of the liquid should evaporate. Remove from the heat, and leave to cool a little - they are best served warm. When serving, bring to the table in the pan - it looks great. Serve a few vine leaves and fennel slices with warm rice. Spoon the braising juices on top and garnish with coriander.</p></div><div class="test1"><button type="button" class="btn btn-primary mb-2 filterIng" style="display: none;"> <span class="glyphicon glyphicon-collapse-down" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Show Ingredient</button><button type="button" class="btn btn-primary mb-2 filterHideIng"><span class="glyphicon glyphicon-collapse-up" style="color: white;vertical-align: sub;margin: 4px;font-size: initial;"></span>Hide Ingredient</button><h2>Ingredients</h2><p>olive oil : 2 tbsp</p><p>ginger : 4cm piece finely chopped</p><p>garlic : 2 cloves peeled and chopped</p><p>tomatoes : 800g peeled and chopped </p><p>lemon juice : 2 tbsp</p><p>caster sugar : 1 tsp</p><p>vine leaves : 50</p><p>fennel bulb : 1 large</p><p>lamb mince : 400g</p></div></div></div>
+ 
+ <div id="about" class="container-fluid">
+   <div class="row">
+     <div class="col-sm-8">
+       <h2>About Us </h2><br>
+       <h4>This website is a one stop solution for all your recipe questions, This site can get you recipes, food details, food names , meals by category, food images,recipe videos link and more!</h4><br>
+       <p>This website is made using a a opensource API known as "TheMealDb"The TheMealDB API is an open source database of Recipes from around the world with great photos. The TheMealDB API is an open online database of food meal recipes that integrates into applications, web etc. This is a simple JSON API with features like, high quality transparent PNG ingredients, meal image uploads, browse meals in sequence and more. TheMealDB provides a free data source API for recipes online, that originated on the Kodi forums, as a cool way to browse recipes on your TV.</p>
+       <br><button class="btn btn-info">Get in Touch</button>
+     </div>
+     <div class="col-sm-4">
+       <span class="glyphicon glyphicon-cutlery logo"></span>
+     </div>
+   </div>
+ </div>
+ <!-- Container (Contact Section) -->
+<div id="contact" name="conatct" class="container-fluid bg-grey">
+   <h2 class="text-center">CONTACT</h2>
+   <div class="row">
+     <div class="col-sm-5">
+       <p>Contact us and we'll get back to you within 24 hours.</p>
+       <p><span class="glyphicon glyphicon-map-marker"></span> Banglore, India</p>
+       <p><span class="glyphicon glyphicon-phone"></span> +91 9958850736</p>
+       <p><span class="glyphicon glyphicon-envelope"></span>admin@easyrecipesworld.com</p>
+     </div>
+     <div class="col-sm-7 slideanim">
+       <div class="row">
+         <div class="col-sm-6 form-group">
+           <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+         </div>
+         <div class="col-sm-6 form-group">
+           <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+         </div>
+       </div>
+       <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+       <div class="row">
+         <div class="col-sm-12 form-group">
+           <button class="btn btn-default pull-right" type="submit">Send</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ <!-- Image of location/map -->
+ <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width: 46%;height: 460px; border-radius: 29px;">
+ 
+
+<div id="ourteam" class="container-fluid">
+  <h2>People who built this site</h2>
+<div class="row">
+<div class="card col-sm-5" style= "margin-right:31px; margin-left: 39%;">
+  <img src="image/rahul.jpg" style="width:100%;border-radius: 26px;" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>Rahul Rai</b></h4> 
+    <p>Founder</p> 
+  </div>
+</div>   
+</div>
+
+ <footer class="container-fluid text-center">
+   <a href="#myPage" title="To Top">
+     <span class="glyphicon glyphicon-chevron-up"></span>
+   </a>
+   
+ </footer>
+</div>
+<script>
+  // When the user scrolls the page, execute myFunction 
+  window.onscroll = function() {myFunction()};
+  function load(){
+	var loader=document.getElementById('giphy')
+	var body=document.getElementById('myPage')
+	loader.style.display="block";
+	//body.className='blur';
+}
+function removeLoader(){
+//	$('#myPage').removeClass('blur');
+    $('#giphy').hide();
+}
+
+  function myFunction() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+  }
+  </script>
+
+ 
+</body>
+</html>
